@@ -3,6 +3,8 @@ body{
     grid-template-columns: repeat(5, 2fr);
     grid-template-rows: 90px auto 90px 90px; 
     background-image: url(image\ 4.png);
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .container{
@@ -92,23 +94,27 @@ a{
   }
 
   /* button start */
-button{
+#button{
   padding: 10px;
   margin-left: 90px;
   margin-top: 70px;
   width: 250px;
   border-radius: 20px;
   border: none;
-  background-color: rgb(253, 152, 27);
+  background-color: #ffc107;
   cursor: pointer;
 }
 
-button:hover{
+
+#button:hover{
     background-color: rgb(142, 8, 219);
     transform: scale(1.05);
 }
 
 /* button end */
 
+#Forgot{
+  margin-left: 60px;
+}
 
 
