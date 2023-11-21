@@ -18,14 +18,18 @@ main {
 }
 #p1 {
   height: 460px;
-  width: 430px;
+  width: 390px;
   background-color: white;
-  margin-top: 140px;
-  margin-left: 190px;
-  border-radius: 10px;
+  margin-top: 150px;
+  margin-left: 220px;
+  border-radius: 20px;
+  padding-top: 50px;
 }
-#p1 > img {
+#p2 > img {
   justify-content: center;
+  width: 130px;
+  height: 30px;
+  padding-bottom: 20px;
 }
 #p2 {
   padding: 30px;
@@ -36,6 +40,7 @@ main {
 h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: xx-large;
+  padding-bottom: 20px;
 }
 #input {
   background-color: transparent;
@@ -44,6 +49,7 @@ h3 {
   padding: 7px;
   width: 300px;
   height: 20px;
+  padding-left: 30px;
 }
 #input2 {
   background-color: transparent;
@@ -52,6 +58,7 @@ h3 {
   padding: 7px;
   width: 300px;
   height: 20px;
+  padding-left: 30px;
 }
 a {
   color: green;
@@ -60,18 +67,18 @@ a {
 }
 #high {
   margin-left: -20px;
-  margin-top: -18px;
+  margin-top: px;
   margin-bottom: 20px;
 }
 
 button {
-  background-color: rgb(255, 182, 94);
+  background-color: rgb(255, 198, 92);
   border-radius: 8px;
-  width: 260px;
-  height: 37px;
+  width: 290px;
+  height: 36px;
   cursor: pointer;
   align-items: center;
-  padding-bottom: 44px;
+  padding-bottom: 40px;
 }
 button:hover {
   transform: scale(1.1);
@@ -98,4 +105,7 @@ label {
   background: transparent;
   outline: none;
   background-color: white;
+  color: silver;
+  
+  
 }

@@ -6,6 +6,8 @@
 
 body {
   background-color: gainsboro;
+  display: grid;
+  grid-template-rows: 100vh;
 }
 
 aside {
@@ -23,8 +25,9 @@ aside {
   background-color: #fff;
   padding: 70px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin: auto;
+  border-radius: 16px;
+  margin-left:120px ;
+  margin-top: 80px;
 }
 
 .right-box h1 {
@@ -47,13 +50,15 @@ aside {
 }
 
 input {
-  width: 60px;
-  height: 60px;
+  
+  width: 40px;
+  height: 50px;
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
-  gap: 10px;
+  gap: 16px;
 }
+
 a {
   text-decoration: none;
   color: orange;
