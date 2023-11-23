@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="stylesheet" href="../Css/Login.css" />
+</head>
+
+<body>
+  <div class="container">
+    <aside><img src="../Images/image2.png" alt="" /></aside>
+    <main>
+      <div id="p1">
+        <div id="p2">
+          <img src="../Images/logo.jpg" alt="logo" />
+          <h3>Hello! Welcome back.</h3>
+          <br />
+          <form action="/verification/login" method="POST">
+            <label for="email">Email</label><input name="email" type="email" id="input"
+              placeholder="Enter your phone email" />
+            <br /><br />
+            <label for="password">Password</label><input name="Password" type="password" id="input2"
+              placeholder="Enter your password" />
+            <div id="high">
+              <br /><input type="checkbox" />Remember me
+              <a id="forgoten" href="forgotten">Forgotten password?</a>
+            </div>
+
+            <br /><button class="btn">
+              <a id="ch" href="#" onclick="return false;">
+                <h4>Login</h4>
+              </a>
+            </button>
+          </form>
+          <div class="end">
+            <h4>Don't have an account?</h4>
+            <a href="welcome.html">Sign in</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // function submitForm() {
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('input').value;
+      const password = document.getElementById('input2').value;
+
+      if (email === '' || password === '') {
+        alert('Please enter your email and password !')
+      }
+      console.log(email);
+      console.log(password);
+      fetch('https://keke-pay.onrender.com/verification/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.success) {
+            window.location.href = 'Dashboard.html';
+          } else {
+            // Check if the error is due to an invalid password
+            if (data.message === 'Invalid password.') {
+              alert('Incorrect password. Please try again.'); // You can also update the DOM to show the message in a more elegant way
+            } else {
+              alert(data.message); // Handle other error messages
+            }
+          }
+        })
+        .catch(error => {
+          // Handle other errors, e.g., network issues
+          console.error('Error:', error);
+        });
+
+      // Make a POST request to your backend API
+      // fetch('https://keke-pay.onrender.com/verification/login', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     email: email,
+      //     password: password,
+      //   }),
+      // })
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     // Assuming the server responds with a success flag
+      //     if (data.success) {
+      //       // Redirect to Dashboard.html after successful authentication
+      //       window.location.href = 'Dashboard.html';
+      //     } else {
+      //       // Handle authentication failure (e.g., display an error message to the user)
+      //       console.error('Authentication failed:', data.message);
+      //     }
+      //   })
+      //   .catch(error => {
+      //     // Handle errors (e.g., display an error message to the user)
+      //     console.error('Error:', error);
+      //   });
+    })
+  </script>
+</body>
+
+</html>

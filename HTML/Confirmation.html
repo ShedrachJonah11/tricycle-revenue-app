@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verification Form</title>
+  <link rel="stylesheet" href="../Css/confirm.css" />
+  <!-- Boxicons CSS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img src="../Images/logo.jpg" alt="" height="60px" width="200px">
+    </header>
+    <h4>Confirm your Email</h4>
+    <form action="#">
+      <div class="input-field">
+        <input type="number" maxlength="1" name="num1" />
+        <input type="number" maxlength="1" name="num2">
+        <input type="number" maxlength="1" name="num3">
+        <input type="number" maxlength="1" name="num4">
+        <input type="number" maxlength="1" name="num5">
+        <input type="number" maxlength="1" name="num6">
+      </div>
+
+      <div class="error" style="color: red; margin-top: 5px;"></div>
+      <div class="error message"></div>
+
+      <h4 id="send">Send code Again</h4>
+      <button class="btn">Verify</button>
+    </form>
+  </div>
+
+  <script>
+    // @desc getting the elements from the dom
+    // @desc getting the elements from the dom
+    const form = document.querySelector('form');
+    const btn = document.querySelector('.btn');
+    const errorMessage = document.querySelector('.error');
+    const codeError = document.querySelector('.error.message');
+
+    // errorMessage.textContent = '';
+
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      // @desc getting the inputed values from the form
+      const num1 = form.num1.value;
+      const num2 = form.num2.value;
+      const num3 = form.num3.value;
+      const num4 = form.num4.value;
+      const num5 = form.num5.value;
+      const num6 = form.num6.value;
+
+      const verificationCode = `${num1}${num2}${num3}${num4}${num5}${num6}`;
+
+      if (verificationCode === '') {
+        codeError.textContent = 'Please enter your verification code!';
+        return; // Stop further execution if the code is empty
+      }
+      try {
+        const res = await fetch('https://keke-pay.onrender.com/verification/confirm-code ', {
+          method: 'POST',
+          body: JSON.stringify({ codeToConfirm: verificationCode }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await res.json();
+
+        // Handle the response data as needed
+        if (data.success) {
+          // Redirect to the Signup page on successful verification
+          location.assign('Signup.html');
+        } else {
+          // Handle errors or display messages based on the server response
+          console.error('Verification failed:', data.message);
+        }
+
+      } catch (error) {
+        // Handle fetch errors
+        console.log('Error during fetch:', error.message);
+      }
+      //   if (!res.ok) {
+      //     throw new Error(`HTTP error! Status: ${res.status}`);
+      //   }
+
+      //   const data = await res.json();
+
+      //   if (data.confirmCode) {
+      //     errorMessage.textContent = data.message;
+      //   }
+
+      //   if (data.error) {
+      //     errorMessage.textContent = data.errorMessage;
+      //   }
+
+      //   if (data.success) {
+      //     window.location.href = 'Signup.html';
+      //   }
+      // } catch (error) {
+      //   console.error('Error:', error);
+      //   // Handle the error gracefully, display a user-friendly message, etc.
+      // }
+    });
+
+
+  </script>
+</body>
+
+</html>
