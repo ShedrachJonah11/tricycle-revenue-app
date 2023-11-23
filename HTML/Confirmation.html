@@ -28,8 +28,8 @@
         <input type="number" maxlength="1" name="num6">
       </div>
 
-      <div class="error" style="color: red; margin-top: 5px;"></div>
       <div class="error message"></div>
+      <div class="errors" style="color: red; margin-top: 15px;"></div>
 
       <h4 id="send">Send code Again</h4>
       <button class="btn">Verify</button>
@@ -38,13 +38,12 @@
 
   <script>
     // @desc getting the elements from the dom
-    // @desc getting the elements from the dom
     const form = document.querySelector('form');
     const btn = document.querySelector('.btn');
-    const errorMessage = document.querySelector('.error');
-    const codeError = document.querySelector('.error.message');
+    const errorMessage = document.querySelector('.error.message');
+    const codeError = document.querySelector('.errors');
 
-    // errorMessage.textContent = '';
+    errorMessage.textContent = '';
 
     btn.addEventListener('click', async (e) => {
       e.preventDefault();
