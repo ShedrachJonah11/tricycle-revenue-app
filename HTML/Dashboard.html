@@ -286,81 +286,106 @@
 
 
         <script>
+            //FUNCTION TO DISPLAY THE DATE
+            function updateClock() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                document.getElementById('hrs').textContent = hours;
+                document.getElementById('min').textContent = minutes;
+                document.getElementById('sec').textContent = seconds;
+
+                const day = now.getDate();
+                const month = now.toLocaleString('default', { month: 'short' });
+                const year = now.getFullYear();
+
+                document.getElementById('day').textContent = day + 'th-';
+                document.getElementById('month').textContent = month + '-';
+                document.getElementById('year').textContent = year;
+            }
+
+            // Update the clock every second
+            setInterval(updateClock, 1000);
+            // Call the function once to set the initial values
+            updateClock();
+            //END OF THE DATE FUNCTION
 
 
 
-            // function toggle() {
-            //     var blur = document.getElementById('blur');
-            //     blur.classList.toggle('active');
-            // }
+            function toggle() {
+                var blur = document.getElementById('blur');
+                blur.classList.toggle('active');
+            }
 
-            // function cancel() {
-            //     var blur = document.getElementById('blur');
-            //     blur.classList.remove('active');
-            // }
+            function cancel() {
+                var blur = document.getElementById('blur');
+                blur.classList.remove('active');
+            }
 
-            // let popup = document.getElementById("popup")
+            let popup = document.getElementById("popup")
 
-            // function openpopup() {
-            //     popup.classList.add("open-popup");
-            // }
+            function openpopup() {
+                popup.classList.add("open-popup");
+            }
 
-            // function closepopup() {
-            //     popup.classList.remove("open-popup");
-            // }
+            function closepopup() {
+                popup.classList.remove("open-popup");
+            }
 
-            // // Second
-            // let pops = document.getElementById("nextpage")
+            // Second
+            let pops = document.getElementById("nextpage")
 
-            // function nextopen() {
-            //     pops.classList.add("next-open");
-            // }
+            function nextopen() {
+                pops.classList.add("next-open");
+            }
 
-            // function closenext() {
-            //     pops.classList.remove("next-open");
-            // }
+            function closenext() {
+                pops.classList.remove("next-open");
+            }
 
-            // function toggle() {
-            //     var blur = document.getElementById('blur');
-            //     blur.classList.toggle('active');
-            // }
+            function toggle() {
+                var blur = document.getElementById('blur');
+                blur.classList.toggle('active');
+            }
 
-            // function cancel() {
-            //     var blur = document.getElementById('blur');
-            //     blur.classList.remove('active');
-            // }
+            function cancel() {
+                var blur = document.getElementById('blur');
+                blur.classList.remove('active');
+            }
 
-            // let addcard = document.getElementById("addcard")
+            let addcard = document.getElementById("addcard")
 
-            // function cardopen() {
-            //     addcard.classList.add("card-open")
-            // }
+            function cardopen() {
+                addcard.classList.add("card-open")
+            }
 
-            // function closecard() {
-            //     addcard.classList.remove("card-open")
-            // }
+            function closecard() {
+                addcard.classList.remove("card-open")
+            }
 
-            // function opensuccess() {
-            //     var endPopup = document.getElementById("end");
-            //     endPopup.classList.add("open-success");
+            function opensuccess() {
+                var endPopup = document.getElementById("end");
+                endPopup.classList.add("open-success");
 
-            //     // Wait for some time (e.g., 3000 milliseconds or 3 seconds) and then redirect
-            //     setTimeout(function () {
-            //         window.location.href = "Amount.html" // Replace with your actual redirect URL
-            //     }, 3000); // Adjust the time as needed
-            // }
-            // function closeSuccess() {
-            //     var endPopup = document.getElementById("end");
-            //     endPopup.classList.remove("open-success");
-            //     cancelBlur();
-            // }
+                // Wait for some time (e.g., 3000 milliseconds or 3 seconds) and then redirect
+                setTimeout(function () {
+                    window.location.href = "Amount.html" // Replace with your actual redirect URL
+                }, 3000); // Adjust the time as needed
+            }
+            function closeSuccess() {
+                var endPopup = document.getElementById("end");
+                endPopup.classList.remove("open-success");
+                cancelBlur();
+            }
 
 
             const logoutBtn = document.getElementById('logoutButton');
             console.log(logoutBtn);
             logoutBtn.addEventListener('click', async (e) => {
                 e.preventDefault();
-                //  
+                //
                 try {
                     const response = await fetch('https://keke-pay.onrender.com/verification/logout', {
                         method: 'POST',
@@ -380,7 +405,7 @@
                         setTimeout(() => {
                             location.assign('Login.html');
 
-                            // window.location.href = '/login'; 
+                            // window.location.href = '/login';
                             // Change '/login' to your actual login page route
                         }, 2000);
                     } else {
