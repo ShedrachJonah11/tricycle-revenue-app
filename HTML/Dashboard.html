@@ -322,98 +322,101 @@
 
 
 
-            function toggle() {
-                var blur = document.getElementById('blur');
-                blur.classList.toggle('active');
-            }
+            // function toggle() {
+            //     var blur = document.getElementById('blur');
+            //     blur.classList.toggle('active');
+            // }
 
-            function cancel() {
-                var blur = document.getElementById('blur');
-                blur.classList.remove('active');
-            }
+            // function cancel() {
+            //     var blur = document.getElementById('blur');
+            //     blur.classList.remove('active');
+            // }
 
-            let popup = document.getElementById("popup")
+            // let popup = document.getElementById("popup")
 
-            function openpopup() {
-                popup.classList.add("open-popup");
-            }
+            // function openpopup() {
+            //     popup.classList.add("open-popup");
+            // }
 
-            function closepopup() {
-                popup.classList.remove("open-popup");
-            }
+            // function closepopup() {
+            //     popup.classList.remove("open-popup");
+            // }
 
-            // Second
-            let pops = document.getElementById("nextpage")
+            // // Second
+            // let pops = document.getElementById("nextpage")
 
-            function nextopen() {
-                pops.classList.add("next-open");
-            }
+            // function nextopen() {
+            //     pops.classList.add("next-open");
+            // }
 
-            function closenext() {
-                pops.classList.remove("next-open");
-            }
+            // function closenext() {
+            //     pops.classList.remove("next-open");
+            // }
 
-            function toggle() {
-                var blur = document.getElementById('blur');
-                blur.classList.toggle('active');
-            }
+            // function toggle() {
+            //     var blur = document.getElementById('blur');
+            //     blur.classList.toggle('active');
+            // }
 
-            function cancel() {
-                var blur = document.getElementById('blur');
-                blur.classList.remove('active');
-            }
+            // function cancel() {
+            //     var blur = document.getElementById('blur');
+            //     blur.classList.remove('active');
+            // }
 
-            let addcard = document.getElementById("addcard")
+            // let addcard = document.getElementById("addcard")
 
-            function cardopen() {
-                addcard.classList.add("card-open")
-            }
+            // function cardopen() {
+            //     addcard.classList.add("card-open")
+            // }
 
-            function closecard() {
-                addcard.classList.remove("card-open")
-            }
+            // function closecard() {
+            //     addcard.classList.remove("card-open")
+            // }
 
-            function opensuccess() {
-                var endPopup = document.getElementById("end");
-                endPopup.classList.add("open-success");
+            // function opensuccess() {
+            //     var endPopup = document.getElementById("end");
+            //     endPopup.classList.add("open-success");
 
-                // Wait for some time (e.g., 3000 milliseconds or 3 seconds) and then redirect
-                setTimeout(function () {
-                    window.location.href = "Amount.html" // Replace with your actual redirect URL
-                }, 3000); // Adjust the time as needed
-            }
-            function closeSuccess() {
-                var endPopup = document.getElementById("end");
-                endPopup.classList.remove("open-success");
-                cancelBlur();
-            }
+            //     // Wait for some time (e.g., 3000 milliseconds or 3 seconds) and then redirect
+            //     setTimeout(function () {
+            //         window.location.href = "Amount.html" // Replace with your actual redirect URL
+            //     }, 3000); // Adjust the time as needed
+            // }
+            // function closeSuccess() {
+            //     var endPopup = document.getElementById("end");
+            //     endPopup.classList.remove("open-success");
+            //     cancelBlur();
+            // }
 
 
+
+
+
+            // LOGOUT FUNCTION/////////////////////////////////////////
             const logoutBtn = document.getElementById('logoutButton');
             console.log(logoutBtn);
             logoutBtn.addEventListener('click', async (e) => {
                 e.preventDefault();
                 //
                 try {
-                    const response = await fetch('https://keke-pay.onrender.com/verification/logout', {
+                    //render=https://keke-pay.onrender.com
+                    const url = 'http://localhost:5500'
+                    const response = await fetch(`${url}/verification/logout`, {
                         method: 'POST',
-                        // credentials: 'include', // Include credentials for sessions
                         headers: {
                             'Content-Type': 'application/json',
                         },
                     });
 
                     if (response.ok) {
-                        // Logout successful, display message and redirect
                         const messageContainer = document.getElementById('logoutMessage');
                         messageContainer.textContent = 'Logout successful.';
                         messageContainer.style.display = 'block';
 
-                        // Redirect to the login page after a delay (e.g., 2 seconds)
                         setTimeout(() => {
-                            location.assign('Login.html');
+                            // location.assign('Login.html');
 
-                            // window.location.href = '/login';
+                            window.location.href = '/login';
                             // Change '/login' to your actual login page route
                         }, 2000);
                     } else {
@@ -421,10 +424,11 @@
                         console.error('Logout failed:', response.statusText);
                     }
                 } catch (error) {
-                    // Handle fetch errors
                     console.error('Fetch error:', error);
                 }
             });
+
+            /////////////END OF THE LOGOUT FUNCTION/////////////////////////////////////
 
         </script>
 </body>
