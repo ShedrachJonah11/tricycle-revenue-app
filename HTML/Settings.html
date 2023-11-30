@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="others">
-                            <button id="first">cancel</button>
+                            <!-- <button id="first">cancel</button> -->
                             <button id="second">Save Changes</button>
                         </div>
                     </div>
@@ -76,6 +76,7 @@
                         </div>
                     </div>
 
+
                     <div class="last__Container">
                         <div class="one">
                             <h4>Your photo</h4>
@@ -98,26 +99,20 @@
             </div>
         </div>
     </div>
-
     <script>
 
         const btn = document.getElementById('second')
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener('click', async function (e) {
             e.preventDefault();
-            // Assuming your API is running on the same domain and port 3000
-            const baseUrl = 'http://localhost:5500';
 
+            // const baseUrl = 'http://localhost:5500';
+            const baseUrl = 'https://keke-pay.onrender.com';
             const userId = localStorage.getItem('userId');
-            console.log(userId);
 
-            // Function to update user profile
             const updateProfile = async () => {
                 const fullName = document.querySelector('.classname input').value;
                 const email = document.querySelector('.email input').value;
                 const registrationNumber = document.querySelector('.reg__no input').value;
-                console.log(fullName);
-                console.log(email);
-                console.log(registrationNumber);
 
                 try {
                     const response = await fetch(`${baseUrl}/user/update/${userId}`, {
@@ -134,88 +129,25 @@
 
                     const data = await response.json();
 
-                    // Handle the response as needed
-                    console.log(data);
+                    if (response.ok) {
+                        alert('Profile updated successfully.');
+                    } else {
+                        alert(`Failed to update profile. Error: ${data.message}`);
+                    }
+
                 } catch (error) {
                     console.error('Error updating user profile:', error);
                 }
             };
-        })
+
+            await updateProfile();
+        });
+
+
+    </script>
+
 
     </script>
 </body>
 
 </html>
-
-
-<!--
-document.addEventListener('DOMContentLoaded', function () {
-// Assuming your API is running on the same domain and port 3000
-const baseUrl = 'http://localhost:3000';
-
-// Assuming the user ID is stored somewhere in your frontend, replace 'USER_ID' with the actual user ID
-const userId = 'USER_ID';
-
-// Function to update user profile
-const updateProfile = async () => {
-const fullName = document.querySelector('.classname input').value;
-const email = document.querySelector('.email input').value;
-const registrationNumber = document.querySelector('.reg__no input').value;
-
-try {
-const response = await fetch(`${baseUrl}/user/update/${userId}`, {
-method: 'PATCH',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify({
-fullName,
-email,
-registrationNumber,
-}),
-});
-
-const data = await response.json();
-
-// Handle the response as needed
-console.log(data);
-} catch (error) {
-console.error('Error updating user profile:', error);
-}
-};
-
-// Function to change user password
-const changePassword = async () => {
-const currentPassword = 'CURRENT_PASSWORD'; // Replace with actual current password
-const newPassword = 'NEW_PASSWORD'; // Replace with actual new password
-const confirmPassword = 'CONFIRM_PASSWORD'; // Replace with actual confirm password
-
-try {
-const response = await fetch(`${baseUrl}/user/changePassword/${userId}`, {
-method: 'PUT',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify({
-currentPassword,
-newPassword,
-confirmPassword,
-}),
-});
-
-const data = await response.json();
-
-// Handle the response as needed
-console.log(data);
-} catch (error) {
-console.error('Error changing password:', error);
-}
-};
-
-// Event listener for the "Save Changes" button
-document.getElementById('second').addEventListener('click', () => {
-updateProfile();
-changePassword(); // You can call this function only when necessary
-});
-});
--->
