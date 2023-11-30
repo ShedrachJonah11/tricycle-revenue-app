@@ -43,59 +43,179 @@
             </nav>
 
             <div class="Main__container">
-                <div class="first__sec">
-                    <div class="first__bar">
-                        <h4>Personal Info</h4>
-                        <h5>Update your photo and Personal details here</h5>
-                    </div>
+                <form action="/user/update" method="PATCH">
+                    <div class="first__sec">
+                        <div class="first__bar">
+                            <h4>Personal Info</h4>
+                            <h5>Update your photo and Personal details here</h5>
+                        </div>
 
-                    <div class="others">
-                        <button id="first">cancel</button>
-                        <button id="second">Save Changes</button>
-                    </div>
-                </div>
-
-                <div class="info__sec">
-                    <div class="name">
-                        <h4>Full Name</h4>
-                        <div class="classname">
-                            <input type="text" placeholder="John Doe">
+                        <div class="others">
+                            <button id="first">cancel</button>
+                            <button id="second">Save Changes</button>
                         </div>
                     </div>
 
-                    <div class="email">
-                        <h4>Email</h4>
-                        <input type="email" placeholder="JohnDoe@gmail.com">
+                    <div class="info__sec">
+                        <div class="name">
+                            <h4>Full Name</h4>
+                            <div class="classname">
+                                <input type="text" placeholder="John James">
+                            </div>
+                        </div>
+
+                        <div class="email">
+                            <h4>Email</h4>
+                            <input type="email" placeholder="JohnDoe@gmail.com">
+                        </div>
+
+
+                        <div class="reg__no">
+                            <h4>Keke registration Number</h4>
+                            <input type="tel" placeholder="KK234323">
+                        </div>
                     </div>
 
+                    <div class="last__Container">
+                        <div class="one">
+                            <h4>Your photo</h4>
+                            <h5>This photo will be displayed on your profile</h5>
+                        </div>
 
-                    <div class="reg__no">
-                        <h4>Keke registration Number</h4>
-                        <input type="tel" placeholder="KK234323">
+                        <div class="two">
+                            <img src="Images__Dashboard/Profile.png" alt="" height="50px">
+                        </div>
+
+
+                        <div class="three">
+                            <img src="Images__Dashboard/Upload.svg" alt="">
+                            <h4>Click to upload</h4>
+                            <h5>Or drag and drop SVG, PNG or JPEG(max, 800*400px)</h5>
+                        </div>
                     </div>
-                </div>
-
-                <div class="last__Container">
-                    <div class="one">
-                        <h4>Your photo</h4>
-                        <h5>This photo will be displayed on your profile</h5>
-                    </div>
-
-                    <div class="two">
-                        <img src="Images__Dashboard/Profile.png" alt="" height="50px">
-                    </div>
-
-
-                    <div class="three">
-                        <img src="Images__Dashboard/Upload.svg" alt="">
-                        <h4>Click to upload</h4>
-                        <h5>Or drag and drop SVG, PNG or JPEG(max, 800*400px)</h5>
-                    </div>
-                </div>
+                </form>
 
             </div>
         </div>
     </div>
+
+    <script>
+
+        const btn = document.getElementById('second')
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            // Assuming your API is running on the same domain and port 3000
+            const baseUrl = 'http://localhost:5500';
+
+            const userId = localStorage.getItem('userId');
+            console.log(userId);
+
+            // Function to update user profile
+            const updateProfile = async () => {
+                const fullName = document.querySelector('.classname input').value;
+                const email = document.querySelector('.email input').value;
+                const registrationNumber = document.querySelector('.reg__no input').value;
+                console.log(fullName);
+                console.log(email);
+                console.log(registrationNumber);
+
+                try {
+                    const response = await fetch(`${baseUrl}/user/update/${userId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            fullName,
+                            email,
+                            registrationNumber,
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    // Handle the response as needed
+                    console.log(data);
+                } catch (error) {
+                    console.error('Error updating user profile:', error);
+                }
+            };
+        })
+
+    </script>
 </body>
 
 </html>
+
+
+<!--
+document.addEventListener('DOMContentLoaded', function () {
+// Assuming your API is running on the same domain and port 3000
+const baseUrl = 'http://localhost:3000';
+
+// Assuming the user ID is stored somewhere in your frontend, replace 'USER_ID' with the actual user ID
+const userId = 'USER_ID';
+
+// Function to update user profile
+const updateProfile = async () => {
+const fullName = document.querySelector('.classname input').value;
+const email = document.querySelector('.email input').value;
+const registrationNumber = document.querySelector('.reg__no input').value;
+
+try {
+const response = await fetch(`${baseUrl}/user/update/${userId}`, {
+method: 'PATCH',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+fullName,
+email,
+registrationNumber,
+}),
+});
+
+const data = await response.json();
+
+// Handle the response as needed
+console.log(data);
+} catch (error) {
+console.error('Error updating user profile:', error);
+}
+};
+
+// Function to change user password
+const changePassword = async () => {
+const currentPassword = 'CURRENT_PASSWORD'; // Replace with actual current password
+const newPassword = 'NEW_PASSWORD'; // Replace with actual new password
+const confirmPassword = 'CONFIRM_PASSWORD'; // Replace with actual confirm password
+
+try {
+const response = await fetch(`${baseUrl}/user/changePassword/${userId}`, {
+method: 'PUT',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+currentPassword,
+newPassword,
+confirmPassword,
+}),
+});
+
+const data = await response.json();
+
+// Handle the response as needed
+console.log(data);
+} catch (error) {
+console.error('Error changing password:', error);
+}
+};
+
+// Event listener for the "Save Changes" button
+document.getElementById('second').addEventListener('click', () => {
+updateProfile();
+changePassword(); // You can call this function only when necessary
+});
+});
+-->

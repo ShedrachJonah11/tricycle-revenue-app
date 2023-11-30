@@ -68,8 +68,8 @@
 
                 <div class="second__bar">
                     <div class="text">
-                        <h6>Hey there,</h6>
-                        <h4>Welcome </h4>
+                        <h6>Hey there,</h6><br>
+                        <h4 id="welcome-message"> </h4>
                     </div>
                     <div class="auto__pay">
                         <h4>Auto pay</h4>
@@ -311,6 +311,14 @@
             // Call the function once to set the initial values
             updateClock();
             //END OF THE DATE FUNCTION
+
+            //FUNCTIOON TO DISPLAY THE USER NAME
+            // const userId = localStorage.getItem('userId');
+            const fullName = localStorage.getItem('fullName');
+            const fName = document.getElementById('welcome-message');
+
+            fName.textContent = `Welcome: ${fullName}`;
+            //END OF FUNCTIION TO DISPLAY USER NAME
 
 
 

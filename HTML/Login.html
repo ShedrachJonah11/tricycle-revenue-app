@@ -57,7 +57,9 @@
       }
       console.log(email);
       console.log(password);
-      fetch('https://keke-pay.onrender.com/verification/login', {
+      // 'https://keke-pay.onrender.com/verification/login'
+      const URL = 'http://localhost:5500/verification/login'
+      fetch(URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,11 +77,13 @@
         })
         .then(data => {
           if (data.success) {
+            localStorage.setItem('userId', data.userId);
+            localStorage.setItem('fullName', data.name);
             window.location.href = 'Dashboard.html';
           } else {
             // Check if the error is due to an invalid password
             if (data.message === 'Invalid password.') {
-              alert('Incorrect password. Please try again.'); 
+              alert('Incorrect password. Please try again.');
             } else {
               alert(data.message); // Handle other error messages
             }
