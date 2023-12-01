@@ -286,6 +286,45 @@
 
 
         <script>
+
+            // LOGOUT FUNCTION/////////////////////////////////////////
+            const logoutBtn = document.getElementById('logoutButton');
+            console.log(logoutBtn);
+            logoutBtn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                //
+                try {
+                    //render=https://keke-pay.onrender.com
+                    const url = 'http://localhost:5500'
+                    const response = await fetch(`${url}/verification/logout`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+
+                    if (response.ok) {
+                        const messageContainer = document.getElementById('logoutMessage');
+                        messageContainer.textContent = 'Logout successful.';
+                        messageContainer.style.display = 'block';
+
+                        setTimeout(() => {
+                            // location.assign('Login.html');
+
+                            window.location.href = 'Login.html';
+                            // Change '/login' to your actual login page route
+                        }, 2000);
+                    } else {
+                        // Handle errors if needed
+                        console.error('Logout failed:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                }
+            });
+
+            /////////////END OF THE LOGOUT FUNCTION/////////////////////////////////////
+
             //FUNCTION TO DISPLAY THE DATE
             function updateClock() {
                 const now = new Date();
@@ -392,43 +431,7 @@
 
 
 
-            // LOGOUT FUNCTION/////////////////////////////////////////
-            const logoutBtn = document.getElementById('logoutButton');
-            console.log(logoutBtn);
-            logoutBtn.addEventListener('click', async (e) => {
-                e.preventDefault();
-                //
-                try {
-                    //render=https://keke-pay.onrender.com
-                    const url = 'http://localhost:5500'
-                    const response = await fetch(`${url}/verification/logout`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    });
 
-                    if (response.ok) {
-                        const messageContainer = document.getElementById('logoutMessage');
-                        messageContainer.textContent = 'Logout successful.';
-                        messageContainer.style.display = 'block';
-
-                        setTimeout(() => {
-                            // location.assign('Login.html');
-
-                            window.location.href = '/login';
-                            // Change '/login' to your actual login page route
-                        }, 2000);
-                    } else {
-                        // Handle errors if needed
-                        console.error('Logout failed:', response.statusText);
-                    }
-                } catch (error) {
-                    console.error('Fetch error:', error);
-                }
-            });
-
-            /////////////END OF THE LOGOUT FUNCTION/////////////////////////////////////
 
         </script>
 </body>
