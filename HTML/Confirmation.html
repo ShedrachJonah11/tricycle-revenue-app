@@ -32,7 +32,7 @@
       <div class="errors" style="color: red; margin-top: 15px;"></div>
 
       <h4 id="send">Send code Again</h4>
-      <button class="btn">Verify</button>
+      <a href="Signup.html"> <button class="btn">Verify</button></a>
     </form>
   </div>
 
@@ -77,8 +77,9 @@
         // Handle the response data as needed
         if (data.success) {
           // Redirect to the Signup page on successful verification
-          // location.assign('Signup.html');
-          window.location.href = 'Signup.html';
+          location.assign('Signup.html');
+          // window.location.href = 'Signup.html';
+
 
         } else {
           // Handle errors or display messages based on the server response
