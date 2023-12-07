@@ -72,8 +72,8 @@
             }
             console.log(emailValue);
             //fetching the data
-            //const  url = 'https://keke-pay.onrender.com'
-            const url = 'http://localhost:5500'
+            const url = 'https://keke-pay.onrender.com'
+            // const url = 'http://localhost:5500'
             try {
                 const res = await fetch(`${url}/verification/send-code`, {
                     method: 'POST',
@@ -89,6 +89,8 @@
 
                 if (res.ok) {
                     location.assign('Confirmation.html');
+                    localStorage.setItem('userId', data.userId);
+
                     // window.href
                 }
 

@@ -31,18 +31,20 @@
                         <h3>This info needs to be accurate</h3>
                     </div>
                     <!-- ================ FORM ================= -->
-                    <form action="">
+                    <form action="/verification/register" method="POST">
                         <fieldset>
                             <legend>Your full names</legend>
-                            <input type="text" name="" id="" placeholder="Enter your names" required>
+                            <input type="text" name="" id="full-name" placeholder="Enter your names" required>
                         </fieldset>
                         <fieldset>
                             <legend>Your Reg. no.</legend>
-                            <input type="text" name="" id="" placeholder="Enter your Keke registration no." required>
+                            <input type="text" name="" id="reg-no" placeholder="Enter your Keke registration no."
+                                required>
                         </fieldset>
                         <fieldset>
                             <legend>Create password</legend>
-                            <input type="password" name="" id="password" placeholder="Enter your password" required>
+                            <input type="password" name="" id="password" class="pwrd-1"
+                                placeholder="Enter your password" required>
                             <div class="eye-icon">
                                 <i class="fa-solid fa-eye eye-open"></i>
                                 <i class="fa-solid fa-eye-slash eye-close"></i>
@@ -50,7 +52,8 @@
                         </fieldset>
                         <fieldset>
                             <legend>Confirm password</legend>
-                            <input type="password" name="" id="password" placeholder="Confirm your password" required>
+                            <input type="password" name="" id="password" class="pwrd-2"
+                                laceholder="Confirm your password" required>
                             <div class="eye-icon">
                                 <i class="fa-solid fa-eye eye-open"></i>
                                 <i class="fa-solid fa-eye-slash eye-close"></i>
@@ -58,13 +61,73 @@
                         </fieldset>
                     </form>
                     <!-- ==================== BUTTON ================ -->
-                    <button><a href="Dashboard.html">Sign Up</a></button>
+                    <a href="Dashboard.html"><button id="btn">Sign Up</button></a>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="./main.js"></script>
+    <script>
+        const btn = document.getElementById('btn');
+        const userId = localStorage.getItem('userId');
+
+        // console.log(btn);
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+
+
+            //input validation
+            if (fullName === '' || regNum === '' || password === '' || confirmPassword === '') {
+                alert('All inputs are required');
+                return;
+            }
+
+            //url
+            const baseUrl = 'https://keke-pay.onrender.com'
+
+            // const baseUrl = 'http://localhost:5500'
+
+            const registerUser = async () => {
+                //selecting elements using DOM
+                const fullName = document.getElementById('full-name').value;
+                const regNum = document.getElementById('reg-no').value;
+                const password = document.querySelector('.pwrd-1').value;
+                const confirmPassword = document.querySelector('.pwrd-2').value;
+
+                try {
+                    const response = await fetch(`${baseUrl}/verification/register/${userId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            fullName,
+                            regNum,
+                            password,
+                            confirmPassword
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert('Registration was successfull.');
+                    } else {
+                        alert(`Registration fail: ${data.message}`);
+                    }
+
+                } catch (error) {
+                    console.error('Error updating user profile:', error);
+                }
+            };
+
+            await registerUser();
+        });
+
+
+
+    </script>
 </body>
 
 </html>
