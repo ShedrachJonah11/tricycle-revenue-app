@@ -87,7 +87,7 @@
                             <p>Current Balance</p>
                             <div class="naira">
                                 <img src="../Images__Dashboard/naira.png" height="20px" width="40px">
-                                <h3>********</h3>
+                                <h3 id="currentBalance">********</h3>
                             </div>
                         </div>
                         <div class="second__Card">
@@ -361,6 +361,15 @@
             fName.textContent = `Welcome: ${fullName}`;
             //END OF FUNCTIION TO DISPLAY USER NAME
 
+
+            //DISPLAY FUND FUNCTIONALITY
+
+            const balance = localStorage.getItem('balance');
+
+            const bal = document.getElementById('currentBalance');
+            bal.textContent = balance;
+
+            //END OF DISPLAY FUND FUNCTIONALITY
 
 
             function toggle() {
