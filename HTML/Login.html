@@ -80,6 +80,8 @@
           if (data.success) {
             localStorage.setItem('userId', data.userId);
             localStorage.setItem('fullName', data.name);
+            localStorage.setItem('balance', data.balance);
+
             window.location.href = 'Dashboard.html';
           }
         })
