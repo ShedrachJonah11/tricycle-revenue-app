@@ -76,7 +76,7 @@
         });
         const data = await res.json();
 
-        if (data.success) {
+        if (res.ok) {
           alert(data.message)
           localStorage.setItem('userId', data.userId);
           location.assign('Signup.html');
