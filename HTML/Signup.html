@@ -71,18 +71,13 @@
         const btn = document.getElementById('btn');
         const userId = localStorage.getItem('userId');
 
-        // console.log(btn);
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
-
-
-
             //input validation
             if (fullName === '' || regNum === '' || password === '' || confirmPassword === '') {
                 alert('All inputs are required');
                 return;
             }
-
             //url
             const baseUrl = 'https://keke-pay.onrender.com'
 
@@ -113,6 +108,8 @@
 
                     if (response.ok) {
                         alert('Registration was successfull.');
+                        window.location.href = 'Dashboard.html';
+
                     } else {
                         alert(`Registration fail: ${data.message}`);
                     }
