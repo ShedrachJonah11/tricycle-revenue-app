@@ -68,6 +68,15 @@
     </main>
 
     <script>
+        const fullName = document.getElementById('full-name').value;
+        const regNum = document.getElementById('reg-no').value;
+        const password = document.querySelector('.pwrd-1').value;
+        const confirmPassword = document.querySelector('.pwrd-2').value;
+
+        console.log(fullName);
+        console.log(regNum);
+        console.log(password);
+        console.log(confirmPassword);
         const btn = document.getElementById('btn');
         const userId = localStorage.getItem('userId');
 
@@ -85,10 +94,6 @@
 
             const registerUser = async () => {
                 //selecting elements using DOM
-                const fullName = document.getElementById('full-name').value;
-                const regNum = document.getElementById('reg-no').value;
-                const password = document.querySelector('.pwrd-1').value;
-                const confirmPassword = document.querySelector('.pwrd-2').value;
 
                 try {
                     const response = await fetch(`${baseUrl}/verification/register/${userId}`, {

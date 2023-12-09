@@ -365,8 +365,12 @@
             //DISPLAY FUND FUNCTIONALITY
 
             const balance = localStorage.getItem('balance');
+            const id = localStorage.getItem('userId');
+            console.log(id);
+
 
             const bal = document.getElementById('currentBalance');
+            console.log(bal);
             bal.textContent = balance;
 
             //END OF DISPLAY FUND FUNCTIONALITY

@@ -28,18 +28,19 @@
         <input type="number" maxlength="1" name="num6">
       </div>
 
-      <div class="error message"></div>
       <div class="errors" style="color: red; margin-top: 15px;"></div>
 
       <h4 id="send">Send code Again</h4>
-      <a href="Signup.html"> <button class="btn">Verify</button></a>
+      <button class="btn">Verify</button>
+      <!-- <a href="Signup.html"></a> -->
     </form>
   </div>
 
   <script>
+
     const form = document.querySelector('form');
     const btn = document.querySelector('.btn');
-    const errorMessage = document.querySelector('.error.message');
+    console.log(btn);
     const codeError = document.querySelector('.errors');
 
     errorMessage.textContent = '';
