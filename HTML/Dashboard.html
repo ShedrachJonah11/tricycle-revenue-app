@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,447 +7,145 @@
     <link rel="stylesheet" href="../Css/Dashboard.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <script src="../Javascript/main.js"></script>
+    <script src="../Javascript/Dashboard.js"></script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
-
 <body>
 
     <!-- ASIDE START -->
     <div class="conc" id="blur">
-        <aside>
-            <img class="logo" src="../Images/logo.jpg" alt="">
-            <div class="container__aside">
-                <div class="links__top">
-                    <li><a class="first" href="../HTML/Dashboard.html"><i
-                                class="uil uil-create-dashboard"></i>Dashboard</a></li>
-                    <li><a class="second" href="../HTML/Payments.html"><i class="uil uil-transaction"></i>Payment</a>
-                    </li>
-                    <li><a class="third" href="../HTML/Transactions.html"><i class="uil uil-notes"></i>Transactions</a>
-                    </li>
-                    <li><a class="fourth" href="../HTML/Settings.html"><i class="uil uil-cog"></i>Settings</a></li>
+   <aside>
+    <img class="logo" src="../Images/logo.jpg" alt="">
+<div class="container__aside">
+<div class="links__top">
+    <li><a class="first" href="../HTML/Dashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a></li>
+    <li><a class="second" href="../HTML/Payments.html"><i class="uil uil-transaction"></i>Payment</a></li>
+    <li><a class="third" href="../HTML/Transactions.html"><i class="uil uil-notes"></i>Transactions</a></li>
+    <li><a class="fourth" href="../HTML/Settings.html"><i class="uil uil-cog"></i>Settings</a></li>
 
-                </div>
+</div>
 
-                <div class="links__bottom">
-                    <li><a href="">Refer a friend</a></li>
-                    <li><a href="">Support</a></li>
-                    <li>
-                        <a href=""><button id="logoutButton"
-                                style="background-color: white; cursor: pointer; border: none; font-size: large; color: grey;">Log
-                                Out
-                            </button><i class="uil uil-signout"></i></a>
-                    </li>
+<div class="links__bottom">
+    <li><a href="Refer.html">Refer a friend</a></li>
+    <li><a href="">Support</a></li>
+    <li><a href="">Log out <i class="uil uil-signout"></i></a></li>
+</div>
+</div>
+   <!-- ASIDE END -->
 
-                    <!-- <li><a href="">Log out <i class="uil uil-signout"></i></a></li> -->
-                </div>
-            </div>
-            <!-- ASIDE END -->
+   
+  <main>
+<div class="first__bar">
+    <div class="clock">
+      <span id="hrs">00</span> 
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span> 
+</div>
+  <div class="date">
+    <span id="day">1st-</span>
+    <span id="month">Jan-</span>  
+    <span id="year">2023</span>
+  </div>
+  
+  <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+  <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+  <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
 
-            <main>
-                <div class="first__bar">
-                    <div class="clock">
-                        <span id="hrs">00</span>
-                        <span>:</span>
-                        <span id="min">00</span>
-                        <span>:</span>
-                        <span id="sec">00</span>
-                    </div>
-                    <div class="date">
-                        <span id="day">1st-</span>
-                        <span id="month">Jan-</span>
-                        <span id="year">2023</span>
-                    </div>
+  
+</div>
 
-                    <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
-                    <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
-                    <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+<div class="second__bar">
+    <div class="text">
+        <h6>Hey there,</h6>
+        <h4>Welcome</h4>
+    </div>
+    <div class="auto__pay">
+    <h4>Auto pay</h4>
+    <label class="switch">
+        <input type="checkbox" id="toggleSwitch">
+        <span class="slider"></span>
+    </div>
+      </label>
 
+</div>
 
-                </div>
-
-                <div class="second__bar">
-                    <div class="text">
-                        <h6>Hey there,</h6><br>
-                        <h4 id="welcome-message"> </h4>
-                    </div>
-                    <div class="auto__pay">
-                        <h4>Auto pay</h4>
-                        <label class="switch">
-                            <input type="checkbox" id="toggleSwitch">
-                            <span class="slider"></span>
-                    </div>
-                    </label>
-
-                </div>
-
-                <div class="cards">
-                    <div class="first__sec">
-                        <div class="first__Card">
-                            <p>Current Balance</p>
-                            <div class="naira">
-                                <img src="../Images__Dashboard/naira.png" height="20px" width="40px">
-                                <h3 id="currentBalance">********</h3>
-                            </div>
-                        </div>
-                        <div class="second__Card">
-                            <div class="cont">
-                                <p>Total Transactions this month</p>
-                                <h2>0</h2>
-                            </div>
-                        </div>
-
-                        <div class="third__Card">
-                            <div>
-                                <img onclick="openpopup(); toggle()" src="../Images__Dashboard/Vector.png"
-                                    height="45px">
-                                <p>Add Funds</p>
-                            </div>
-
-                            <div>
-                                <img src="../Images__Dashboard/Vector (1).png" height="45px">
-                                <p>Transfer Funds</p>
-                            </div>
-
-                            <div>
-                                <a href=""><img src="../Images__Dashboard/Group 27.png" alt="" height="42px"></a>
-                                <p>Make Payments</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="secondsec">
-                        <div class="fourth__Card">
-                            <img src="../Images__Dashboard/Support operator helps to solve the problem.png" alt="">
-                            <h2>Need help?</h2>
-                            <p>Our customer care teeam is avaliable 24/7.
-                                For any queries visit our FAQ section or send us a message
-                            </p>
-                            <button id="view__Faq">View FAQ</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="transaction__area">
-                    <div class="top__transaction__area">
-                        <li>Your transaction history</li>
-                        <li><a href="">View all</a></li>
-                    </div>
-                    <hr>
-                    <p>All your recent transactions will appear hear</p>
-                </div>
-
-
-            </main>
+<div class="cards">
+    <div class="first__sec">
+    <div class="first__Card">
+        <p>Current Balance</p>
+        <div class="naira">
+        <img src="../Images__Dashboard/naira.png" height="20px" width="40px">
+        <h3>********</h3>
+    </div>
+ </div>
+    <div class="second__Card">
+        <div class="cont">
+        <p>Total Transactions this month</p>
+        <h2>0</h2>
+        </div>
+    </div>
+   
+    <div class="third__Card">
+        <div class="Add__funds">
+      <a href="addfunds__tab.html"><img src="../Images__Dashboard/Vector.png" height="45px"></a>  
+        <p>Add Funds</p>
     </div>
 
-    <!-- Popup -->
-    <link rel="stylesheet" href="../Css/Add funds.css">
-
-    <div class="Container" id="popup">
-        <div class="head">
-            <div class="heading">
-                <h2 style="cursor: pointer;">Add Funds</h2>
-
-                <img id="cancelButton" onclick="closepopup(); cancel() " src="../Images/close.svg" alt="">
-            </div>
-
-
-            <div class="content__Container">
-                <div class="top">
-                    <img src="../Images/Bank.svg" height="40px">
-                    <div class="text">
-                        <h3>Bank Transfer</h3>
-                        <h4>Add money via mobile or internet banking</h4>
-                    </div>
-                </div>
-
-                <div class="virtual__Account">
-                    <div class="virtual__Account top">
-                        <h4>Virtual Accout</h4>
-                        <h4>Union Bank</h4>
-                    </div>
-
-                    <div class="card__number">
-                        <h4 class="contentToCopy">0099694345 <img id="copyButton" class="copyText"
-                                src="../Images/copy.svg" alt=""></h4>
-                    </div>
-                </div>
-
-                <div class="or">
-                    <h4>Or</h4>
-                    <hr>
-                </div>
-
-                <div class="bottom__card" onclick="nextopen(); toggle2()">
-                    <img src="../Images/card">
-                    <div class="text">
-                        <h3>Top up with Card</h3>
-                        <h4>Add money from your bank card</h4>
-                    </div>
-                    <img src="../Images/arrow.svg">
-                </div>
-            </div>
-        </div>
-
-        <!-- Second -->
-        <link rel="stylesheet" href="Pay process/Add funds.css">
-        <link rel="stylesheet" href="Css/style.css">
-        <div id="nextpage" class="container__amount">
-            <div onclick="closeSuccess()" class="head">
-                <div class="heading">
-                    <h2>Amount</h2>
-                    <img onclick="closenext(); cancel2()" src="close.svg" alt="">
-                </div>
-                <div class="Enter">
-                    <img src="../Images/enter.svg" alt="">
-                    <input type="text" placeholder="Enter amount">
-                </div>
-                <div class="btn">
-                    <button onclick="cardopen()"><img src="../Images/plus.svg">Add Card</button>
-                </div>
-                <button type="submit" id="first">Next</button>
-            </div>
-        </div>
-
-        <!-- THird Fourth -->
-        <link rel="stylesheet" href="Pay process/Add funds.css">
-        <link rel="stylesheet" href="Css/style.css">
-        <div class="card__add" id="addcard">
-            <div class="top">
-                <img src="../Images/back.svg">
-                <h2>Add Card</h2>
-                <img onclick="closecard()" src="../Images/close.svg">
-            </div>
-
-            <div class="inputs">
-
-                <h4>Card Number</h4>
-                <input id="card" type="text" placeholder="Please enter your card number">
-                <div class="Full">
-                    <div class="word">
-                        <h4>Expiry date</h4>
-                        <div class="expiry__date">
-                            <input type="number" maxlength="2" placeholder="MM">
-                            <h2>/</h2>
-                            <input type="number" placeholder="YY">
-                        </div>
-                    </div>
-                    <div class="cvv">
-                        <h4>CVV</h4>
-                        <input type="text" placeholder="Enter your CVV">
-                    </div>
-                </div>
-                <div class="pin">
-                    <h4>Enter Pin</h4>
-                    <input id="pin" type="password" placeholder="Enter yout pin">
-                </div>
-                <div class="btnn">
-                    <button onclick="opensuccess(); toggle2()">Next</button>
-                </div>
-            </div>
-        </div>
-        <!-- Sucess -->
-
-        <div class="successful">
-            <div class="card__sucess" id="end">
-                <img src="../Images/Ellipse 1.png" alt="">
-                <h4>Added successfully</h4>
-                <h5>Your will automatically be redirected</h5>
-            </div>
-        </div>
-
-        <div id="logoutMessage" style="display: none; color: green;"></div>
-
-
-
-
-
-
-        <!-- Automatic popup -->
-
-        <!-- <link rel="stylesheet" href="Notes.css">
-<link rel="stylesheet" href="Css/style.css">
-<div class="first__container">
-    <div class="top">
-        <h4>Welcome!</h4>
-        <h4 id="Skip">Skip</h4>
-    </div>
-        <div class="text1">
-            <p>This is your dashboard where you can efficiently manage your money and pay your dues.</p>
-        </div>
-        <button id="next-btn">Next</button>
-    </div> -->
-
-
-
-
-
-
-
-
-        <script>
-
-            // LOGOUT FUNCTION/////////////////////////////////////////
-            const logoutBtn = document.getElementById('logoutButton');
-            console.log(logoutBtn);
-            logoutBtn.addEventListener('click', async (e) => {
-                e.preventDefault();
-                //
-                try {
-                    //render=https://keke-pay.onrender.com
-                    const url = 'https://keke-pay.onrender.com'
-                    // const url = 'http://localhost:5500'
-                    const response = await fetch(`${url}/verification/logout`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    });
-
-                    if (response.ok) {
-                        const messageContainer = document.getElementById('logoutMessage');
-                        messageContainer.textContent = 'Logout successful.';
-                        messageContainer.style.display = 'block';
-
-                        setTimeout(() => {
-                            // location.assign('Login.html');
-
-                            window.location.href = 'Login.html';
-                            // Change '/login' to your actual login page route
-                        }, 2000);
-                    } else {
-                        // Handle errors if needed
-                        console.error('Logout failed:', response.statusText);
-                    }
-                } catch (error) {
-                    console.error('Fetch error:', error);
-                }
-            });
-
-            /////////////END OF THE LOGOUT FUNCTION/////////////////////////////////////
-
-            //FUNCTION TO DISPLAY THE DATE
-            function updateClock() {
-                const now = new Date();
-                const hours = now.getHours().toString().padStart(2, '0');
-                const minutes = now.getMinutes().toString().padStart(2, '0');
-                const seconds = now.getSeconds().toString().padStart(2, '0');
-
-                document.getElementById('hrs').textContent = hours;
-                document.getElementById('min').textContent = minutes;
-                document.getElementById('sec').textContent = seconds;
-
-                const day = now.getDate();
-                const month = now.toLocaleString('default', { month: 'short' });
-                const year = now.getFullYear();
-
-                document.getElementById('day').textContent = day + 'th-';
-                document.getElementById('month').textContent = month + '-';
-                document.getElementById('year').textContent = year;
-            }
-
-            // Update the clock every second
-            setInterval(updateClock, 1000);
-            // Call the function once to set the initial values
-            updateClock();
-            //END OF THE DATE FUNCTION
-
-            //FUNCTIOON TO DISPLAY THE USER NAME
-            // const userId = localStorage.getItem('userId');
-            const fullName = localStorage.getItem('fullName');
-            const fName = document.getElementById('welcome-message');
-
-            fName.textContent = `Welcome: ${fullName}`;
-            //END OF FUNCTIION TO DISPLAY USER NAME
-
-
-            //DISPLAY FUND FUNCTIONALITY
-
-            const balance = localStorage.getItem('balance');
-            const id = localStorage.getItem('userId');
-            console.log(id);
-
-
-            const bal = document.getElementById('currentBalance');
-            console.log(bal);
-            bal.textContent = balance;
-
-            //END OF DISPLAY FUND FUNCTIONALITY
-
-
-            function toggle() {
-                var blur = document.getElementById('blur');
-                blur.classList.toggle('active');
-            }
-
-            function cancel() {
-                var blur = document.getElementById('blur');
-                blur.classList.remove('active');
-            }
-
-            let popup = document.getElementById("popup")
-
-            function openpopup() {
-                popup.classList.add("open-popup");
-            }
-
-            function closepopup() {
-                popup.classList.remove("open-popup");
-            }
-
-            // Second
-            let pops = document.getElementById("nextpage")
-
-            function nextopen() {
-                pops.classList.add("next-open");
-            }
-
-            function closenext() {
-                pops.classList.remove("next-open");
-            }
-
-            function toggle() {
-                var blur = document.getElementById('blur');
-                blur.classList.toggle('active');
-            }
-
-            function cancel() {
-                var blur = document.getElementById('blur');
-                blur.classList.remove('active');
-            }
-
-            let addcard = document.getElementById("addcard")
-
-            function cardopen() {
-                addcard.classList.add("card-open")
-            }
-
-            function closecard() {
-                addcard.classList.remove("card-open")
-            }
-
-            function opensuccess() {
-                var endPopup = document.getElementById("end");
-                endPopup.classList.add("open-success");
-
-                // Wait for some time (e.g., 3000 milliseconds or 3 seconds) and then redirect
-                setTimeout(function () {
-                    window.location.href = "Amount.html" // Replace with your actual redirect URL
-                }, 3000); // Adjust the time as needed
-            }
-            function closeSuccess() {
-                var endPopup = document.getElementById("end");
-                endPopup.classList.remove("open-success");
-                cancelBlur();
-            }
-
-
-
-
-
-
-
-        </script>
+    <div class="Transfer__funds">
+       <a href="trasnfer__tab.html"><img src="../Images__Dashboard/Vector (1).png" height="45px"></a>
+        <p>Transfer Funds</p>
+    </div> 
+</div>
+</div>
+
+<div class="secondsec">
+<div class="fourth__Card">
+    <img src="../Images__Dashboard/Support operator helps to solve the problem.png" alt="">
+    <h2>Need help?</h2>
+    <p>Our customer care teeam is avaliable 24/7.
+        For any queries visit our FAQ section or send us a message
+    </p>
+    <button id="view__Faq">View FAQ</button>
+</div>
+</div>
+</div>
+
+  <div class="transaction__area">
+    <div class="top__transaction__area">
+    <li>Your transaction history</li>
+    <li><a href="">View all</a></li>
+  </div>
+  <hr>
+  <p>All your recent transactions will appear hear</p>
+</div>
+
+
+</main> 
+</div>
+
+
+<script>
+const optionMenu = document.querySelector(".select-menu"),
+    selectBtn = optionMenu.querySelector(".select-btn"),
+    options = optionMenu.querySelectorAll(".option"),
+    sBtn_text = optionMenu.querySelector(".sBtn-text");
+   
+    selectBtn.addEventListener("click", () =>
+    optionMenu.classList.toggle("active"));
+
+    
+
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            let selectedOption = option.querySelector(".option-text").innerText;
+            sBtn_text.innerText = selectedOption;
+
+            optionMenu.classList.remove("active")
+            console.log(selectedOption);
+        });
+    });
+</script>
 </body>
-
 </html>

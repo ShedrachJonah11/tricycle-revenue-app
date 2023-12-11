@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/transferfunds__tab.css">
+    <title>Transfer funds</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+<body>
+    <div class="body">
+        <div class="popup-container" id="popupContainer">
+            <div class="card active" id="card1">
+                
+                <!-- Your card content goes here -->
+                <div class="card-content" style="height: 300px;">
+                    <div class="transF">
+                        <div class="transF__top">
+                          <span id="TF">  Transfer Funds</span>
+                            <a href="Dashboard.html"><img src="../Images/close.svg" alt=""></a>
+                            
+                        </div>
+                        <form action="">
+                        <div class="inside">
+                            <h4>Amount</h4>
+                            <input type="number" placeholder="1,000 - 50,000">
+                        </div>
+                        <div class="Hug">
+                            <h4>Recipient Account</h4>
+                            <input type="number" placeholder="Enter your 10 digit account number">
+                            <div class="select-menu">
+                                <div class="select-btn">
+                                    <span class="sBtn-text">Select Bank</span>
+                                    <i class="uil uil-angle-down"></i>
+                                </div>
+                                <ul  class="options">
+                                    <li class="option">
+                                        <img style="border-radius: 50%; height: 40px;" id="select-img" src="../Images__Dashboard/access.png" alt="">
+                                        <span class="option-text">Access Bank</span>
+                                    </li>
+    
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img" src="../Images__Dashboard/first.png" alt="">
+                                            <span class="option-text">First Bank</span>
+                                        </li>
+    
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img" src="../Images__Dashboard/union.png" alt="">
+                                            <span class="option-text">Union Bank</span>
+                                        </li>
+    
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img" src="../Images__Dashboard/Stanbic.png" alt="">
+                                            <span class="option-text">Stanbic</span>
+                                        </li>
+    
+                                         <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img" src="../Images__Dashboard/access.png" alt="">
+                                            <span class="option-text">Access</span>
+                                        </li>
+                                </ul>
+                                <a href="Dashboard.html"><button>Next</button></a>
+                            </form>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+    const optionMenu = document.querySelector(".select-menu"),
+    selectBtn = optionMenu.querySelector(".select-btn"),
+    options = optionMenu.querySelectorAll(".option"),
+    sBtn_text = optionMenu.querySelector(".sBtn-text");
+   
+    selectBtn.addEventListener("click", () =>
+    optionMenu.classList.toggle("active"),
+    );
+
+    
+    
+
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            let selectedOption = option.querySelector(".option-text").innerText;
+            sBtn_text.innerText = selectedOption;
+
+            optionMenu.classList.remove("active")
+            console.log(selectedOption);
+        });
+    });
+
+    </script>
+</body>
+</html>
