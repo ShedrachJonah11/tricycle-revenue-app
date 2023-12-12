@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/agentDashboard__history.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+    <!-- ASIDE START -->
+   <aside>
+<div class="container__aside">
+<div class="links__top">
+    <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+    <li ><a class="first" href="agentDashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a></li>
+    <li ><a class="second" href="agentDashboard__history.html"><i class="uil uil-transaction"></i>History</a></li>
+    <li><a class="third" href="agentDashboard__Settings.html"><i class="uil uil-notes"></i>Settings</a></li>
+</div>
+
+<div class="links__bottom">
+    <li><a href="">Support</a></li>
+    <li><a href="">Log out <i class="uil uil-signout"></i></a></li>
+</div>
+</div>
+</aside>
+
+<main>
+<div class="first__bar">
+    <div class="clock">
+      <span id="hrs">00</span> 
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span> 
+</div>
+  <div class="date">
+    <span id="day">1st-</span>
+    <span id="month">Jan-</span>  
+    <span id="year">2023</span>
+  </div>
+  
+  <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+  <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+  <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+</div>
+
+<div class="ID">
+    <input type="text" placeholder="Search plate no, date or ID">
+    <button>Search</button>
+</div>
+<div class="transaction__area">
+    <div class="top__transaction__area">
+    <li id="head">Your transaction history</li>
+    <li><a href="">View all</a></li>
+  </div>
+  <hr>
+<div class="list">
+    <strong>Date</strong>
+    <strong>Keke plate no.</strong>
+    <strong>Amount</strong>
+    <strong>Reciept no.</strong>
+    <strong>Status</strong>
+</div>
+<div class="history">
+  <div class="dates">
+    <li>10.12.2023</li>
+    <li>10.12.2023</li>
+    <li>10.12.2023</li>
+    <li>10.12.2023</li>
+    <li>10.12.2023</li>
+    <li>10.12.2023</li>
+    <li>10.12.2023</li>
+  </div>
+
+  <div class="kekeplate">
+    <li>SHD-34-T8</li>
+    <li>SHD-34-T8</li>
+    <li>SHD-34-T8</li>
+    <li>SHD-34-T8</li>
+    <li>SHD-34-T8</li>
+    <li>SHD-34-T8</li>
+    <li>SHD-34-T8</li>
+  </div>
+
+  <div class="amount">
+    <li>N100</li>
+    <li>N100</li>
+    <li>N100</li>
+    <li>N100</li>
+    <li>N100</li>
+    <li>N100</li>
+    <li>N100</li>
+  </div>
+
+  <div class="reciept__ID">
+    <li>11DE83451</li>
+    <li>11DE83451</li>
+    <li>11DE83451</li>
+    <li>11DE83451</li>
+    <li>11DE83451</li>
+    <li>11DE83451</li>
+    <li>11DE83451</li>
+  </div>
+
+  <div class="status">
+    <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+    <li><img src="../Images/failed.svg" alt=""> Failed</li>
+    <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+    <li><img src="../Images/Proecessing.svg" alt=""> Pending</li>
+    <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+    <li><img src="../Images/failed.svg" alt=""> Failed</li>
+    <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+  </div>
+</div>
+
+
+</div>
+</div>
+</main>
+</body>
+</html>
